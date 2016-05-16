@@ -1,0 +1,25 @@
+apply from: 'buildsys/dependencies.gradle'
+apply plugin: 'me.tatarka.retrolambda'
+
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.0.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath "io.realm:realm-gradle-plugin:0.88.3"
+        classpath 'me.tatarka:gradle-retrolambda:3.2.3'
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.2.1'
+        classpath 'com.frogermcs.androiddevmetrics:androiddevmetrics-plugin:0.4'
+    }
+}
+
+
+
+task wrapper(type: Wrapper) {
+    description 'Creates the gradle wrapper.'
+    gradleVersion '2.10'
+}

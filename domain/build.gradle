@@ -1,0 +1,30 @@
+apply plugin: 'java'
+apply plugin: 'me.tatarka.retrolambda'
+
+configurations {
+    provided
+}
+
+sourceSets {
+    main {
+        compileClasspath += configurations.provided
+    }
+}
+
+dependencies {
+    def domainDependencies = rootProject.ext.domainDependencies
+    def domainTestDependencies = rootProject.ext.domainTestDependencies
+
+    provided domainDependencies.daggerCompiler
+    provided domainDependencies.javaxAnnotation
+    compile domainDependencies.retrofit
+    compile domainDependencies.retrofitGson;
+    compile domainDependencies.retrofitRx;
+    compile domainDependencies.dagger
+    compile domainDependencies.rxJava
+    compile domainDependencies.logger
+    compile domainDependencies.jackson
+    compile domainDependencies.fasterXML
+    testCompile domainTestDependencies.junit
+    testCompile domainTestDependencies.mockito
+}

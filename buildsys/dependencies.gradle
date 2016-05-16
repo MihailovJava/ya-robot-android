@@ -1,0 +1,119 @@
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext {
+    //Android
+    androidBuildToolsVersion = "23.0.2"
+    androidMinSdkVersion = 16
+    androidTargetSdkVersion = 23
+    androidCompileSdkVersion = 23
+    androidApplicationId = 'ru.yarobot.app'
+    androidVersionCode = 1
+    androidVersionName = "1.0"
+
+    //Libraries
+    daggerVersion = '2.0.2'
+    butterKnifeVersion = '7.0.1'
+    retrofitVersion = '2.0.0'
+    rxJavaVersion = '1.1.2'
+    rxAndroidVersion = '1.1.0'
+    javaxAnnotationVersion = '1.0'
+    gsonVersion = '2.6.2'
+    okHttpVersion = '3.2.0'
+    androidAnnotationsVersion = '21.0.3'
+    appCompatVersion = '23.2.1'
+    recyclerViewVersion = '23.2.1'
+    supportDesignVersion = '23.2.1'
+    jodaTimeVersion = '2.9.3'
+    eventBusVersion = '3.0.0'
+    chartVersion = '2.2.4'
+    jacksonVersion = '2.6.5'
+    fasterXMLVersion = '1.2.0'
+
+    //Testing
+    //  robolectricVersion = '3.0'
+    jUnitVersion = '4.12'
+    assertJVersion = '1.7.1'
+    mockitoVersion = '1.9.5'
+    dexmakerVersion = '1.0'
+    espressoVersion = '2.0'
+    testingSupportLibVersion = '0.1'
+    //Development
+    leakCanaryVersion = '1.4-beta2'
+    loggerVersion = '1.3.5'
+
+
+    presentationDependencies = [
+            appCompat      : "com.android.support:appcompat-v7:${appCompatVersion}",
+            supportDesign  : "com.android.support:design:${supportDesignVersion}",
+            daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger         : "com.google.dagger:dagger:${daggerVersion}",
+            butterKnife    : "com.jakewharton:butterknife:${butterKnifeVersion}",
+            recyclerView   : "com.android.support:recyclerview-v7:${recyclerViewVersion}",
+            rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+            rxAndroid      : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            logger         : "com.noveogroup.android:android-logger:${loggerVersion}",
+            cardview       : "com.android.support:cardview-v7:${appCompatVersion}",
+            eventbus       : "org.greenrobot:eventbus:${eventBusVersion}",
+            charts :        "com.github.PhilJay:MPAndroidChart:v${chartVersion}"
+    ]
+
+    presentationTestDependencies = [
+            mockito          : "org.mockito:mockito-core:${mockitoVersion}",
+            dexmaker         : "com.google.dexmaker:dexmaker:${dexmakerVersion}",
+            dexmakerMockito  : "com.google.dexmaker:dexmaker-mockito:${dexmakerVersion}",
+            espresso         : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            testingSupportLib: "com.android.support.test:testing-support-lib:${testingSupportLibVersion}",
+    ]
+
+    domainDependencies = [
+            daggerCompiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger         : "com.google.dagger:dagger:${daggerVersion}",
+            javaxAnnotation: "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            rxJava         : "io.reactivex:rxjava:${rxJavaVersion}",
+            logger         : "com.noveogroup.android:android-logger:${loggerVersion}",
+            retrofit          : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGson      : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitRx        : "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}",
+            jackson : "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}",
+            fasterXML : "com.fasterxml:classmate:${fasterXMLVersion}"
+    ]
+
+    domainTestDependencies = [
+            junit  : "junit:junit:${jUnitVersion}",
+            mockito: "org.mockito:mockito-core:${mockitoVersion}",
+    ]
+
+    dataDependencies = [
+            daggerCompiler    : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger            : "com.google.dagger:dagger:${daggerVersion}",
+            okHttp            : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            gson              : "com.google.code.gson:gson:${gsonVersion}",
+            rxJava            : "io.reactivex:rxjava:${rxJavaVersion}",
+            rxAndroid         : "io.reactivex:rxandroid:${rxAndroidVersion}",
+            javaxAnnotation   : "javax.annotation:jsr250-api:${javaxAnnotationVersion}",
+            androidAnnotations: "com.android.support:support-annotations:${androidAnnotationsVersion}",
+            okhhtpLogger      : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            logger            : "com.noveogroup.android:android-logger:${loggerVersion}",
+            jodaTime          : "net.danlew:android.joda:${jodaTimeVersion}"
+
+
+    ]
+
+    dataTestDependencies = [
+            junit       : "junit:junit:${jUnitVersion}",
+            assertj     : "org.assertj:assertj-core:${assertJVersion}",
+            mockito     : "org.mockito:mockito-core:${mockitoVersion}",
+            retrofit    : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGson: "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitRx  : "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
+    ]
+
+    developmentDependencies = [
+            leakCanary: "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+    ]
+}
