@@ -15,8 +15,10 @@ public class CampaignParams {
     private String name;
     @JsonProperty("FIO")
     private String fio;
+
     @JsonProperty("StartDate")
-    private Long startDate;
+    private String startDate;
+
     @JsonProperty("Sum")
     private float sum;
     @JsonProperty("Rest")

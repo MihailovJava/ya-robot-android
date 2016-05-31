@@ -18,4 +18,5 @@ public class Strategy {
     public String getStrategyName() {
         return strategyName;
     }
+
 }

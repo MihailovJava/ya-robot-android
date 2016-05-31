@@ -4,13 +4,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+import ru.yarobot.services.Transliterator;
 
 
 public class Banner {
+    private String id;
     @JsonProperty("BannerID")
-    private long bannerID;
+    private long bannerId;
     @JsonProperty("CampaignID")
-    private int campaignID;
+    private int campaignId;
     @JsonProperty("Title")
     private String title;
     @JsonProperty("Text")
@@ -54,8 +56,8 @@ public class Banner {
         return title;
     }
 
-    public long getBannerID() {
-        return bannerID;
+    public long getBannerId() {
+        return bannerId;
     }
 
     public String getIsActive() {
@@ -65,9 +67,17 @@ public class Banner {
     @Override
     public String toString() {
         return "Banner{" +
-                "campaignID=" + campaignID +
-                ", bannerID=" + bannerID +
-                ", title='" + title + '\'' +
+                "campaignId=" + campaignId +
+                ", bannerId=" + bannerId +
+                ", title='" + new Transliterator().transliterate(title) + '\'' +
                 '}';
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
     }
 }

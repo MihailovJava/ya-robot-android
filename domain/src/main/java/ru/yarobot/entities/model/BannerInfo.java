@@ -1,21 +1,22 @@
 package ru.yarobot.entities.model;
 
 
-
-import java.util.Date;
-
-
 public class BannerInfo {
-
 
     private String id;
 
     private Long date;
+
     private String seriesId;
+
     private Banner banner;
+
     private Float price;
+
     private Action action;
+
     private Position position;
+
 
     public Banner getBanner() {
         return banner;
@@ -75,6 +76,6 @@ public class BannerInfo {
 
     @Override
     public String toString() {
-        return  "Banner=" + banner.getBannerID() + " price=" + price + " action=" + action + " position=" + position;
+        return "Banner=" + banner.getBannerId() + " price=" + price + " action=" + action + " position=" + position;
     }
 }
