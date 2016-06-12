@@ -7,13 +7,14 @@ import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
 import ru.yarobot.android.presenter.banner.BannerInfoPresenterImpl;
-import ru.yarobot.android.presenter.bus.banner.BannerInfoCommunicationBus;
+import ru.yarobot.android.presenter.bus.banner.BannerListCommunicationBus;
 import ru.yarobot.repositories.BannerRepository;
 import ru.yarobot.repositories.banners.BannerRepositoryImpl;
-import ru.yarobot.repositories.banners.rest.BannerApi;
 import ru.yarobot.repositories.banners.rest.BannerRestRepository;
 import ru.yarobot.repositories.banners.rest.BannerRestRepositoryImpl;
+import ru.yarobot.repositories.campaigns.CampaignsRepositoryImpl;
 import ru.yarobot.usecase.banners.BannersInteractor;
+import ru.yarobot.usecase.campaigns.CampaignsInteractor;
 import ru.yarobot.util.RetrofitApiFactory;
 import rx.Observable;
 
@@ -21,13 +22,13 @@ import rx.Observable;
  * Created by Nixy on 16.05.2016.
  */
 @Module
-public class BannerInfoModule {
+public class IntercatorsModule {
 
     @Provides
     @Singleton
     @Inject
-    BannerInfoCommunicationBus bannerInfoCommunicationBus(BannerInfoPresenterImpl presenter){
-        return new BannerInfoCommunicationBus(presenter);
+    BannerListCommunicationBus bannerInfoCommunicationBus(BannerInfoPresenterImpl presenter){
+        return new BannerListCommunicationBus(presenter);
     }
 
     @Provides
@@ -66,4 +67,13 @@ public class BannerInfoModule {
     }
 
 
+
+
+   @Provides
+   @Singleton
+   @Inject
+   CampaignsInteractor providesCampaignsInteractor(Observable.Transformer transformer,
+                                                   CampaignsRepositoryImpl repository){
+       return new CampaignsInteractor(transformer,repository);
+   }
 }

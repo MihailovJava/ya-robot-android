@@ -1,28 +1,30 @@
 package ru.yarobot.android.presenter.bus.banner;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import ru.yarobot.android.presenter.banner.BannerInfoPresenter;
 import ru.yarobot.android.presenter.banner.BannerInfoPresenterImpl;
 import ru.yarobot.android.presenter.base.BasePresenter;
 import ru.yarobot.android.presenter.bus.base.BaseCommunicationBus;
-import ru.yarobot.android.view.BannerInfoView;
+import ru.yarobot.android.view.BannerListView;
 import ru.yarobot.android.view.ViewState;
-import ru.yarobot.entities.BannerPositionEntity;
+import ru.yarobot.entities.model.Banner;
 
 /**
  * Created by Nixy on 16.05.2016.
  */
-public class BannerInfoCommunicationBus extends BaseCommunicationBus<BannerInfoView>
-        implements BannerInfoPresenter,BannerInfoView {
+public class BannerListCommunicationBus extends BaseCommunicationBus<BannerListView>
+        implements BannerInfoPresenter,BannerListView {
 
     @Inject
     BannerInfoPresenterImpl presenter;
 
-    BannerPositionEntity entity;
+    List<Banner> entity;
 
 
-    public BannerInfoCommunicationBus(BannerInfoPresenterImpl presenter) {
+    public BannerListCommunicationBus(BannerInfoPresenterImpl presenter) {
         this.presenter = presenter;
         presenter.attach(this);
     }
@@ -37,7 +39,7 @@ public class BannerInfoCommunicationBus extends BaseCommunicationBus<BannerInfoV
         switch (viewState){
             case ViewState.LOADED:
                 view.showLoading(false);
-                view.showBannerInfo(entity);
+                view.showBannerList(entity);
                 break;
             case ViewState.LOADING:
                 view.showLoading(true);
@@ -46,18 +48,18 @@ public class BannerInfoCommunicationBus extends BaseCommunicationBus<BannerInfoV
     }
 
     @Override
-    public void onGetBannerInfo() {
+    public void onGetBannerList(int id) {
         if(viewState != ViewState.LOADED) {
             setViewState(ViewState.LOADING);
-            presenter.onGetBannerInfo();
+            presenter.onGetBannerList(id);
         } else {
             apply();
         }
     }
 
     @Override
-    public void showBannerInfo(BannerPositionEntity bannerPositionEntity) {
-        entity = bannerPositionEntity;
+    public void showBannerList(List<Banner> banners) {
+        entity = banners;
         setViewState(ViewState.LOADED);
     }
 }

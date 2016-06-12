@@ -1,48 +1,47 @@
 package ru.yarobot.entities.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
-
-
-import java.util.Date;
+import com.google.gson.annotations.SerializedName;
 
 public class Campaign {
-    @JsonProperty("CampaignID")
+    @SerializedName("CampaignID")
     private int campaignID;
-    @JsonProperty("Login")
+    @SerializedName("Login")
     private String login;
-    @JsonProperty("Name")
+    @SerializedName("Name")
     private String name;
 
-    @JsonProperty("StartDate")
+    @SerializedName("StartDate")
     private Long startDate;
 
-    @JsonProperty("Sum")
+    @SerializedName("Sum")
     private float sum;
-    @JsonProperty("Rest")
+    @SerializedName("Rest")
     private float rest;
-    @JsonProperty("SumAvailableForTransfer")
+    @SerializedName("SumAvailableForTransfer")
     private float sumAvailableForTransfer;
-    @JsonProperty("Shows")
+    @SerializedName("Shows")
     private int shows;
-    @JsonProperty("Clicks")
+    @SerializedName("Clicks")
     private int clicks;
-    @JsonProperty("Status")
+    @SerializedName("Status")
     private String status;
-    @JsonProperty("StatusShow")
+    @SerializedName("StatusShow")
     private String statusShow;
-    @JsonProperty("StatusArchive")
+    @SerializedName("StatusArchive")
     private String statusArchive;
-    @JsonProperty("StatusActivating")
+    @SerializedName("StatusActivating")
     private String statusActivating;
-    @JsonProperty("StatusModerate")
+    @SerializedName("StatusModerate")
     private String statusModerate;
-    @JsonProperty("IsActive")
+    @SerializedName("IsActive")
     private String isActive;
-    @JsonProperty("ManagerName")
+    @SerializedName("ManagerName")
     private String managerName;
-    @JsonProperty("AgencyName")
+    @SerializedName("AgencyName")
     private String agencyName;
+
+    private CampaignInfo campaignInfo;
 
     public int getCampaignID() {
         return campaignID;
@@ -54,5 +53,21 @@ public class Campaign {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public CampaignInfo getCampaignInfo() {
+        return campaignInfo;
+    }
+
+    public void setCampaignInfo(CampaignInfo campaignInfo) {
+        this.campaignInfo = campaignInfo;
     }
 }

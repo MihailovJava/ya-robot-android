@@ -1,25 +1,31 @@
 package ru.yarobot.android.presenter.banner;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import ru.yarobot.android.presenter.base.BasePresenterImpl;
-import ru.yarobot.android.view.BannerInfoView;
+import ru.yarobot.android.view.BannerListView;
 import ru.yarobot.usecase.banners.BannersInteractor;
 
-/**
- * Created by Nixy on 16.05.2016.
- */
-public class BannerInfoPresenterImpl  extends BasePresenterImpl<BannerInfoView> implements BannerInfoPresenter {
+
+
+@Singleton
+public class BannerInfoPresenterImpl  extends BasePresenterImpl<BannerListView> implements BannerInfoPresenter {
 
     BannersInteractor interactor;
 
 
+    @Inject
     public BannerInfoPresenterImpl(BannersInteractor interactor) {
         this.interactor = interactor;
     }
 
+
+
     @Override
-    public void onGetBannerInfo() {
-        interactor.getBannerPosition().subscribe(bannerPositionEntity -> {
-                view.showBannerInfo(bannerPositionEntity);
+    public void onGetBannerList(int campaignId) {
+        interactor.getBanners(campaignId).subscribe(banners -> {
+            view.showBannerList(banners);
         }, this::handleError);
     }
 

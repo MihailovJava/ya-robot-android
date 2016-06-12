@@ -6,7 +6,7 @@ import android.content.Context;
 import ru.yarobot.android.di.components.ApplicationComponent;
 import ru.yarobot.android.di.components.DaggerApplicationComponent;
 import ru.yarobot.android.di.modules.ApplicationModule;
-import ru.yarobot.android.di.modules.BannerInfoModule;
+import ru.yarobot.android.di.modules.IntercatorsModule;
 import ru.yarobot.android.di.modules.RestModule;
 import ru.yarobot.android.di.modules.SubscribersModule;
 
@@ -22,12 +22,22 @@ public class YarobotApp extends Application {
             applicationComponent = DaggerApplicationComponent
                     .builder()
                     .applicationModule(new ApplicationModule(context))
-                    .bannerInfoModule(new BannerInfoModule())
+                    .intercatorsModule(new IntercatorsModule())
                     .restModule(new RestModule())
                     .subscribersModule(new SubscribersModule())
                     .build();
         }
         return applicationComponent;
+    }
+
+    public static ApplicationComponent newInstance(){
+        return DaggerApplicationComponent
+                .builder()
+                .applicationModule(new ApplicationModule(context))
+                .intercatorsModule(new IntercatorsModule())
+                .restModule(new RestModule())
+                .subscribersModule(new SubscribersModule())
+                .build();
     }
 
     @Override

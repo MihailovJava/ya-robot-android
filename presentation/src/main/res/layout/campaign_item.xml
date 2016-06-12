@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/activity_horizontal_margin">
+    <TextView
+        android:id="@+id/campaigns_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Company name"
+        />
+    <TextView
+        android:id="@+id/campaigns_id"
+        android:layout_below="@+id/campaigns_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Id: 123123"
+        />
+    <TextView
+        android:id="@+id/campaigns_status"
+        android:layout_below="@+id/campaigns_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Status: OK"
+        />
+
+</RelativeLayout>

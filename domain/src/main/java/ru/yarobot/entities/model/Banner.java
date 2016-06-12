@@ -44,6 +44,8 @@ public class Banner {
     @JsonProperty("Phrases")
     private List<Phrase> phrases;
 
+    private BannerInfo bannerInfo;
+
     public List<Phrase> getPhrases() {
         return phrases;
     }
@@ -79,5 +81,13 @@ public class Banner {
 
     public String getId() {
         return id;
+    }
+
+    public BannerInfo getBannerInfo() {
+        return bannerInfo;
+    }
+
+    public void setBannerInfo(BannerInfo bannerInfo) {
+        this.bannerInfo = bannerInfo;
     }
 }

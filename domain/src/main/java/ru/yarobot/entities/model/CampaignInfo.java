@@ -6,7 +6,6 @@ public class CampaignInfo {
 
     private String id;
     private int campaignId;
-    private Date date = new Date();
     private Status status;
     private String statusMessage;
 
@@ -18,7 +17,28 @@ public class CampaignInfo {
         this.status = status;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
     public void setStatusMessage(String statusMessage) {
         this.statusMessage = statusMessage;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getCampaignId() {
+        return campaignId;
+    }
+
+
+    public String getStatusMessage() {
+        return statusMessage;
     }
 }

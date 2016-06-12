@@ -14,10 +14,11 @@ sourceSets {
 dependencies {
     def domainDependencies = rootProject.ext.domainDependencies
     def domainTestDependencies = rootProject.ext.domainTestDependencies
-
     provided domainDependencies.daggerCompiler
     provided domainDependencies.javaxAnnotation
     compile domainDependencies.retrofit
+    provided 'org.projectlombok:lombok:1.16.8'
+
     compile domainDependencies.retrofitGson;
     compile domainDependencies.retrofitRx;
     compile domainDependencies.dagger
@@ -27,4 +28,5 @@ dependencies {
     compile domainDependencies.fasterXML
     testCompile domainTestDependencies.junit
     testCompile domainTestDependencies.mockito
+    compile 'com.google.code.gson:gson:2.6.2'
 }

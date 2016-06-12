@@ -7,6 +7,12 @@ public class BannerPage {
     private String next;
     private Integer totalPages;
 
+    public BannerPage(List<Banner> banners) {
+        this.banners = banners;
+        next = null;
+        totalPages = banners.size();
+    }
+
     public BannerPage(List<Banner> banners, String next, Integer totalPages) {
         this.banners = banners;
         this.next = next;

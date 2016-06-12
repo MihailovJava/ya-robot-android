@@ -8,10 +8,17 @@ public class CampaignPage {
     private final String next;
     private final Integer totalPages;
 
+
     public CampaignPage(List<Campaign> campaigns, String next, Integer totalPages) {
         this.campaigns = campaigns;
         this.next = next;
         this.totalPages = totalPages;
+    }
+
+    public CampaignPage(List<Campaign> campaigns) {
+        this.campaigns = campaigns;
+        next = null;
+        totalPages = campaigns.size();
     }
 
     public List<Campaign> getCampaigns() {
@@ -25,4 +32,6 @@ public class CampaignPage {
     public Integer getTotalPages() {
         return totalPages;
     }
+
+
 }
